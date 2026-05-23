@@ -1,0 +1,331 @@
+@use 'sass:color';
+@use 'variables' as *;
+
+// Hero (Home)
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - #{$header-height});
+  min-height: calc(100dvh - #{$header-height});
+  padding: $space-2xl $space-md;
+  overflow: hidden;
+}
+
+.hero__background {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 100%, rgba(61, 214, 160, 0.08) 0%, transparent 60%),
+    linear-gradient(160deg, #0a0e14 0%, #141c28 40%, #0d1219 100%);
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: $color-hero-overlay;
+  }
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 40rem;
+  text-align: center;
+}
+
+.hero__eyebrow {
+  display: inline-block;
+  margin-bottom: $space-md;
+  padding: $space-xs $space-sm;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $color-accent;
+  border: 1px solid $color-border-accent;
+  border-radius: $radius-sm;
+  background: $color-accent-glow;
+}
+
+.hero__title {
+  margin-bottom: $space-lg;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
+}
+
+.hero__intro {
+  font-size: clamp(1rem, 2.5vw, 1.1875rem);
+  line-height: 1.7;
+  color: rgba($color-text, 0.88);
+  margin-bottom: $space-xl;
+}
+
+.hero__cta {
+  display: inline-block;
+  padding: $space-sm $space-xl;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: $color-bg;
+  background: $color-accent;
+  border-radius: $radius-md;
+  transition: background $transition, transform $transition;
+
+  &:hover,
+  &:focus-visible {
+    color: $color-bg;
+    background: color.adjust($color-accent, $lightness: 6%);
+    transform: translateY(-1px);
+  }
+}
+
+// Contact page
+.contact-cards {
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+}
+
+.contact-card {
+  padding: $space-xl;
+  text-align: center;
+  background: $color-bg-card;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  transition: border-color $transition, box-shadow $transition;
+
+  &:hover {
+    border-color: $color-border-accent;
+    box-shadow: 0 0 32px $color-accent-glow;
+  }
+}
+
+.contact-card__label {
+  display: block;
+  margin-bottom: $space-sm;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $color-text-subtle;
+}
+
+.contact-card__value {
+  display: block;
+  font-size: clamp(1.25rem, 4vw, 1.625rem);
+  font-weight: 600;
+  color: $color-accent;
+  word-break: break-word;
+
+  &:hover,
+  &:focus-visible {
+    color: color.adjust($color-accent, $lightness: 8%);
+  }
+}
+
+.contact-note {
+  margin-top: $space-2xl;
+  padding: $space-lg;
+  text-align: center;
+  color: $color-text-muted;
+  font-size: 0.9375rem;
+  border-top: 1px solid $color-border;
+}
+
+@media (min-width: $breakpoint-sm) {
+  .contact-cards {
+    flex-direction: row;
+  }
+
+  .contact-card {
+    flex: 1;
+  }
+}
+
+// FAQ page
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+}
+
+.faq-item {
+  padding: $space-lg;
+  background: $color-bg-card;
+  border: 1px solid $color-border;
+  border-left: 3px solid $color-accent-dim;
+  border-radius: $radius-md;
+}
+
+.faq-item__question {
+  margin-bottom: $space-sm;
+  color: $color-text;
+}
+
+.faq-item__answer {
+  color: $color-text-muted;
+  font-size: 0.9375rem;
+}
+
+.faq-outline {
+  margin-top: $space-2xl;
+  padding: $space-lg;
+  background: $color-bg-elevated;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+
+  h2 {
+    font-size: 1.125rem;
+    margin-bottom: $space-md;
+    color: $color-accent;
+  }
+
+  ol {
+    margin: 0;
+    padding-left: $space-lg;
+    color: $color-text-muted;
+    font-size: 0.9375rem;
+  }
+
+  li {
+    padding-left: $space-xs;
+  }
+}
+
+// RPG Challenges page
+.quest-log {
+  background: $color-quest-parchment;
+  border: 2px solid $color-quest-border;
+  border-radius: $radius-lg;
+  padding: $space-lg;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.quest-log__header {
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+  margin-bottom: $space-xl;
+  padding-bottom: $space-md;
+  border-bottom: 1px solid $color-quest-border;
+
+  &::before {
+    content: '⚔';
+    font-size: 1.25rem;
+  }
+
+  h2 {
+    margin: 0;
+    font-family: $font-display;
+    font-size: 1.25rem;
+    color: $color-quest-gold;
+    letter-spacing: 0.04em;
+  }
+}
+
+.quest-section {
+  & + & {
+    margin-top: $space-xl;
+    padding-top: $space-xl;
+    border-top: 1px dashed rgba($color-quest-gold, 0.25);
+  }
+}
+
+.quest-section__label {
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+  margin-bottom: $space-md;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: $color-quest-gold-dim;
+}
+
+.quest {
+  display: flex;
+  gap: $space-md;
+  padding: $space-md;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba($color-quest-gold, 0.2);
+  border-radius: $radius-md;
+
+  & + & {
+    margin-top: $space-sm;
+  }
+}
+
+.quest__marker {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: $color-bg;
+  background: $color-quest-gold;
+  border-radius: $radius-sm;
+  box-shadow: 0 2px 0 $color-quest-gold-dim;
+}
+
+.quest__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.quest__title {
+  margin: 0 0 $space-xs;
+  font-size: 1rem;
+  font-weight: 600;
+  color: $color-text;
+}
+
+.quest__desc {
+  margin: 0;
+  font-size: 0.875rem;
+  color: $color-text-muted;
+  line-height: 1.5;
+}
+
+.quest--main {
+  border-color: rgba($color-quest-gold, 0.45);
+  background: rgba($color-quest-gold, 0.06);
+
+  .quest__marker {
+    background: linear-gradient(180deg, #e8c068 0%, $color-quest-gold 100%);
+  }
+}
+
+.quest--side {
+  .quest__marker {
+    background: $color-surface;
+    color: $color-quest-gold;
+    border: 1px solid $color-quest-gold-dim;
+    box-shadow: none;
+    font-size: 0.75rem;
+  }
+}
+
+.quest-status {
+  flex-shrink: 0;
+  align-self: center;
+  padding: $space-xs $space-sm;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $color-text-subtle;
+  border: 1px solid $color-quest-border;
+  border-radius: $radius-sm;
+}
+
+@media (min-width: $breakpoint-md) {
+  .quest-log {
+    padding: $space-xl $space-2xl;
+  }
+}
