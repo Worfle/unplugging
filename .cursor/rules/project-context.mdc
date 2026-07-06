@@ -1,0 +1,46 @@
+---
+description: Project purpose and context for the Unplugging life coach website
+alwaysApply: true
+---
+
+# Unplugging — Project Context
+
+This is a marketing website for **Edward Worbis**, a life coach specializing in **technology and gaming addiction recovery**.
+
+## Terminology
+
+- Use **life coach** — never **counselor**
+- Use **counseling** — never **life coaching**
+- Title: **Technology & Gaming Addiction Life Coach**
+
+## Voice
+
+- Site copy uses first person ("I", "me", "my") — never refer to Edward in the third person
+- Exception: the site logo and page `<title>` tags may use "Edward Worbis"
+- No copyright notices anywhere on the site
+
+## Primary Goal
+
+Promote counseling services and convert visitors into contacts. Every page, design choice, and piece of copy should support that goal.
+
+## Audience
+
+People (or their loved ones) struggling with unhealthy screen time, gaming, or digital habits who are looking for professional help.
+
+## Site Structure
+
+- **Home** (`index.html`) — hero, value proposition, primary call to action
+- **Challenges** (`challenges.html`) — common struggles clients face
+- **FAQ** (`faq.html`) — answers objections and builds trust
+- **Get In Touch** (`get-in-touch.html`) — main conversion page; prioritize clear, low-friction contact paths
+
+## Content & Design Principles
+
+- Tone: calm, conversational, and professional — not preachy, alarmist, or sales-driven
+- Emphasize that help is available and not every path looks the same
+- Guide visitors toward getting in touch; CTAs should be visible and compelling
+- Avoid language that stigmatizes addiction, shames visitors, or overpromises
+
+## Tech Stack
+
+Static HTML pages styled with SCSS (`src/scss/`), built with Vite.

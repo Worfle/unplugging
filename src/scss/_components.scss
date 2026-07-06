@@ -1,5 +1,5 @@
-@use 'sass:color';
-@use 'variables' as *;
+@use "sass:color";
+@use "variables" as *;
 
 // Hero (Home)
 .hero {
@@ -17,11 +17,15 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 80% 60% at 50% 100%, rgba(61, 214, 160, 0.08) 0%, transparent 60%),
+    radial-gradient(
+      ellipse 80% 60% at 50% 100%,
+      rgba(61, 214, 160, 0.08) 0%,
+      transparent 60%
+    ),
     linear-gradient(160deg, #0a0e14 0%, #141c28 40%, #0d1219 100%);
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
     background: $color-hero-overlay;
@@ -69,7 +73,9 @@
   color: $color-bg;
   background: $color-accent;
   border-radius: $radius-md;
-  transition: background $transition, transform $transition;
+  transition:
+    background $transition,
+    transform $transition;
 
   &:hover,
   &:focus-visible {
@@ -87,16 +93,27 @@
 }
 
 .contact-card {
+  display: block;
   padding: $space-xl;
   text-align: center;
+  text-decoration: none;
+  color: inherit;
   background: $color-bg-card;
   border: 1px solid $color-border;
   border-radius: $radius-lg;
-  transition: border-color $transition, box-shadow $transition;
+  transition:
+    border-color $transition,
+    box-shadow $transition;
 
-  &:hover {
+  &:hover,
+  &:focus-visible {
     border-color: $color-border-accent;
     box-shadow: 0 0 32px $color-accent-glow;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-accent;
+    outline-offset: 2px;
   }
 }
 
@@ -116,11 +133,11 @@
   font-weight: 600;
   color: $color-accent;
   word-break: break-word;
+}
 
-  &:hover,
-  &:focus-visible {
-    color: color.adjust($color-accent, $lightness: 8%);
-  }
+.contact-card:hover .contact-card__value,
+.contact-card:focus-visible .contact-card__value {
+  color: color.adjust($color-accent, $lightness: 8%);
 }
 
 .contact-note {
@@ -212,7 +229,7 @@
   border-bottom: 1px solid $color-quest-border;
 
   &::before {
-    content: '⚔';
+    content: "⚔";
     font-size: 1.25rem;
   }
 
